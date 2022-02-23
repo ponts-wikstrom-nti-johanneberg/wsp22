@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    display: grid;
+    top: 0px;
+    width: 100vw;
+    height: 75px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 75px;
+    grid-template-areas: 
+    "dn1 dn2 dn3";
+}
+
+#div_nav1 {
+    grid-area: dn1;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_nav2 {
+    grid-area: dn2;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_nav3 {
+    grid-area: dn3;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_wrapper {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 400px 400px;
+    grid-template-areas: 
+    "hea hea"
+    "ar1 ar2"
+    "ar3 ar4";
+}
+
+.img_main {
+    width: 200px;
+    height: 300px;
+}
+
+#h1_start {
+    grid-area: hea;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: yellow;
+}
+
+#article_1 {
+    grid-area: ar1;
+    background: red;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 150px;
+    grid-template-areas: 
+    "pi1 pi1"
+    "mo1 so1";
+}
+
+#article_2 {
+    grid-area: ar2;
+    background: green;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 150px;
+    grid-template-areas: 
+    "pi2 pi2"
+    "mo2 so2";
+}
+
+#article_3 {
+    grid-area: ar3;
+    background: blue;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 150px;
+    grid-template-areas: 
+    "pi3 pi3"
+    "mo3 so3";
+}
+
+#article_4 {
+    grid-area: ar4;
+    background: purple;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 150px;
+    grid-template-areas: 
+    "pi4 pi4"
+    "mo4 so4";
+}
+
