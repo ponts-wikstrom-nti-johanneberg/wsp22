@@ -48,7 +48,7 @@ nav {
     width: 100%;
     height: 100vh;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 400px 400px;
+    grid-template-rows: 200px 450px 450px;
     grid-template-areas: 
     "hea hea"
     "ar1 ar2"
@@ -66,58 +66,216 @@ nav {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background: yellow;
 }
 
 #article_1 {
     grid-area: ar1;
-    background: red;
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 150px;
+    grid-template-rows: 300px 150px;
     grid-template-areas: 
     "pi1 pi1"
     "mo1 so1";
 }
 
+#div_11 {
+    grid-area: pi1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#div_12 {
+    grid-area: mo1;
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#div_13 {
+    grid-area: so1;
+    display: flex;
+    justify-content: left;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
 #article_2 {
     grid-area: ar2;
-    background: green;
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 150px;
+    grid-template-rows: 300px 150px;
     grid-template-areas: 
     "pi2 pi2"
     "mo2 so2";
 }
 
+#div_21 {
+    grid-area: pi2;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#div_22 {
+    grid-area: mo2;
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#div_23 {
+    grid-area: so2;
+    display: flex;
+    justify-content: left;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
 #article_3 {
     grid-area: ar3;
-    background: blue;
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 150px;
+    grid-template-rows: 300px 150px;
     grid-template-areas: 
     "pi3 pi3"
     "mo3 so3";
 }
 
+#div_31 {
+    grid-area: pi3;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#div_32 {
+    grid-area: mo3;
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#div_33 {
+    grid-area: so3;
+    display: flex;
+    justify-content: left;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
 #article_4 {
     grid-area: ar4;
-    background: purple;
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 250px 150px;
+    grid-template-rows: 300px 150px;
     grid-template-areas: 
     "pi4 pi4"
     "mo4 so4";
 }
 
+#div_41 {
+    grid-area: pi4;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#div_42 {
+    grid-area: mo4;
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#div_43 {
+    grid-area: so4;
+    display: flex;
+    justify-content: left;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.div_rating {
+    display: grid;
+    width: 40%;
+    height: 600px;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 60px*10;
+    grid-template-areas: 
+    "rb11 rb12"
+    "rb21 rb22"
+    "rb31 rb32"
+    "rb41 rb42"
+    "rb51 rb52"
+    "rb61 rb62"
+    "rb71 rb72"
+    "rb81 rb82"
+    "rb91 rb92"
+    "rb101 rbrb102";
+    border-radius: 3px;
+}
+
+.div_rowbox11 {
+    grid-area: rb11;
+    background: red;
+}
+
+.div_rowbox12 {
+    grid-area: rb12;
+    background: black;
+}
+/* .div_row1 
+            .div_rowbox11 
+            .div_rowbox12
+        .div_row2
+            .div_rowbox21 
+            .div_rowbox22
+        .div_row3 
+            .div_rowbox31 
+            .div_rowbox32 
+        .div_row4 
+            .div_rowbox41 
+            .div_rowbox42
+        .div_row5 
+            .div_rowbox51 
+            .div_rowbox52
+        .div_row6 
+            .div_rowbox61 
+            .div_rowbox62
+        .div_row7 
+            .div_rowbox71 
+            .div_rowbox72
+        .div_row8 
+            .div_rowbox81 
+            .div_rowbox82
+        .div_row9 
+            .div_rowbox91 
+            .div_rowbox92
+        .div_row10 
+            .div_rowbox101 
+            .div_rowbox102 */

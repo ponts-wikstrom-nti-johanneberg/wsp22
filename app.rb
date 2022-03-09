@@ -8,3 +8,7 @@ enable :sessions
 get ('/') do
     slim(:start)
 end
+
+get('/make_bronze') do
+    slim(:make_yours_bronze)
+end
