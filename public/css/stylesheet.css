@@ -220,7 +220,7 @@ nav {
     padding: 10px;
 }
 
-.div_rating {
+/* .div_rating {
     display: grid;
     width: 40%;
     height: 600px;
@@ -248,7 +248,7 @@ nav {
 .div_rowbox12 {
     grid-area: rb12;
     background: black;
-}
+} */
 /* .div_row1 
             .div_rowbox11 
             .div_rowbox12
@@ -279,3 +279,7 @@ nav {
         .div_row10 
             .div_rowbox101 
             .div_rowbox102 */
+
+#hej {
+    font-size: 300px;
+}

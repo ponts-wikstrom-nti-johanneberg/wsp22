@@ -9,6 +9,18 @@ get ('/') do
     slim(:start)
 end
 
+get('/show_bronze') do
+end
+
 get('/make_bronze') do
-    slim(:make_yours_bronze)
+    db = SQLite3::Database.new("db/databas_be_like.db")
+    db.results_as_hash = true
+    result = db.execute("SELECT * FROM cards")
+    p result
+    slim(:make_yours_bronze, locals:{result:result})
+end
+
+post('/make_bronze') do
+    
+    redirect('/show_bronze')
 end
