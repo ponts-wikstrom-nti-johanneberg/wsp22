@@ -283,3 +283,39 @@ nav {
 #hej {
     font-size: 300px;
 }
+
+.rating_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.div_rating {
+    margin: 5px;
+    height: 160px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.submit_rating {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    height: 50px;
+    width: 100px;
+    color: white;
+    background: skyblue;
+}
+
+input:hover {
+    cursor:pointer;
+}
+
+.img_rating {
+    height: 130px;
+    width: 100px;
+}
