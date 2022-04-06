@@ -5,7 +5,7 @@ form action="/make_bronze" method="post" enctype="multipart/form-data"
         - result.each do |pictures|
             div.div_rating
                 img.img_rating src="img/#{pictures["Picture"]}" alt="Bronskort"/
-                select#rating name="card_rating#{pictures["id"]}" 
+                select#rating name="card_rating #{pictures["id"]}" 
                     option value="5*" 5*
                     option value="4*" 4*
                     option value="3*" 3*

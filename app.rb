@@ -23,16 +23,16 @@ end
 
 post('/make_bronze') do
     p "hej"
-i = 1
-# card_ratings_array = []
-card_rating = params[:card_rating]
-    # while i < 29
-    #     card_ratings_array << card_rating
-    #     i += 1
-    # end
+    p params
+    p "hej"
     db = SQLite3::Database.new("db/databas_be_like.db")
     db.results_as_hash = true
-    show_rating = db.execute("INSERT INTO user_ratinglist_relation (show_rating) VALUES (?)", card_rating)
-    p show_rating
+    params.each do |key, value|
+        card_id = key.split(" ")[1].to_i
+        p card_id
+        card_rating = value
+        show_rating = db.execute("INSERT INTO user_ratinglist_relation (show_rating, cards_id) VALUES (?,?)", card_rating, card_id)
+        p show_rating
+    end
     redirect('/show_bronze')
 end
