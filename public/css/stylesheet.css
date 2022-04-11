@@ -304,18 +304,67 @@ nav {
     justify-content: center;
 }
 
-input {
+.rating {
     height: 50px;
     width: 100px;
     color: white;
     background: skyblue;
 }
 
-input:hover {
+.rating:hover {
     cursor:pointer;
 }
 
 .img_rating {
     height: 130px;
     width: 100px;
+}
+
+.div_register {
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h2_register {
+    font-size: 30px;
+}
+
+.input_register {
+    display: flex;
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.submit_register {
+    display: flex;
+    margin: 5px;
+}
+
+.div_login {
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.h2_login {
+    font-size: 30px;
+}
+
+.input_login {
+    display: flex;
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.submit_login {
+    display: flex;
+    margin: 5px;
 }
