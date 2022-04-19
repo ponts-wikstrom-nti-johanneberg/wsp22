@@ -368,3 +368,107 @@ nav {
     display: flex;
     margin: 5px;
 }
+
+.div_list {
+    display: grid;
+    width: 550px;
+    height: auto;
+    grid-template-columns: 50px 550px;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: 
+    "ds5 d5s"
+    "ds4 d4s"
+    "ds3 d3s"
+    "ds2 d2s"
+    "ds1 d1s";
+}
+
+.img_show {
+    width: 50px;
+    height: 60px;
+}
+
+.div_show_5star {
+    grid-area: ds5;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: limegreen;
+}
+
+.div_5star {
+    grid-area: d5s;
+    display: flex;
+    min-height: 60px;
+    background:rgba(211, 211, 211, 0.4);
+    overflow: scroll; 
+}
+
+.div_show_4star {
+    grid-area: ds4;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: yellow;
+}
+
+.div_4star {
+    grid-area: d4s;
+    display: flex;
+    min-height: 60px;
+    background:rgba(211, 211, 211, 0.4);
+    overflow: scroll; 
+}
+
+.div_show_3star {
+    grid-area: ds3;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: blue;
+}
+
+.div_3star {
+    grid-area: d3s;
+    display: flex;
+    min-height: 60px;
+    background:rgba(211, 211, 211, 0.4);
+    overflow: scroll; 
+}
+
+.div_show_2star {
+    grid-area: ds2;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: red;
+}
+
+.div_2star {
+    grid-area: d2s;
+    display: flex;
+    min-height: 60px;
+    background:rgba(211, 211, 211, 0.4);
+    overflow: scroll; 
+}
+
+.div_show_1star {
+    grid-area: ds1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: darkred;
+}
+
+.div_1star {
+    grid-area: d1s;
+    display: flex;
+    min-height: 60px;
+    background:rgba(211, 211, 211, 0.4);
+    overflow: scroll; 
+}

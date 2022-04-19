@@ -6,6 +6,7 @@ require 'sinatra/reloader' if development?
 
 enable :sessions
 username = nil
+ratinglist = nil
 
 get ('/') do
     slim(:start)
@@ -20,16 +21,30 @@ get ('/login') do
 end
 
 get('/show_bronze') do
-    # db = SQLite3::Database.new("db/databas_be_like.db")
-    # db.results_as_hash = true
-    # rating_1star = db.execute("SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1*'").first
-    # p rating_1star
-    # rating_2star = db.execute("SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2*'").first
-    # rating_3star = db.execute("SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3*'").first
-    # rating_4star = db.execute("SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4*'").first
-    # rating_5star = db.execute("SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5*'").first
-    # slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star})
-    slim(:show_bronze)
+    db = SQLite3::Database.new("db/databas_be_like.db")
+    db.results_as_hash = true
+    p "ratinglist är #{ratinglist}"
+    p ratinglist
+    # ratinglist = ratinglist.to_i
+    rating_1star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1*' AND ratinglist=?)",ratinglist)
+    rating_1star[index] = rating_1star
+    # rating_1star[ratinglist] = rating_1star
+
+    # p "rating_1star är #{rating_1star}"
+    rating_2star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2*' AND ratinglist=?)",ratinglist)
+    # rating_1star[ratinglist] = rating_2star
+    rating_2star[index] = rating_2star
+    rating_3star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3*' AND ratinglist=?)",ratinglist)
+    # rating_1star[ratinglist] = rating_3star
+    rating_3star[index] = rating_3star
+    rating_4star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4*' AND ratinglist=?)",ratinglist)
+    # rating_1star[ratinglist] = rating_4star
+    rating_4star[index] = rating_4star
+    rating_5star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5*' AND ratinglist=?)",ratinglist)
+    # rating_1star[ratinglist] = rating_5star
+    rating_5star[index] = rating_5star
+    p "rating_5star är #{rating_5star}"
+    slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist})
 end
 
 post('/login') do
@@ -80,7 +95,6 @@ end
 post('/make_bronze') do
     db = SQLite3::Database.new("db/databas_be_like.db")
     db.results_as_hash = true
-    p "username är #{username}"
     user_id = db.execute("SELECT id FROM user WHERE Name = ?", username).first
     user_id = user_id[0].to_i
     p "user_id är #{user_id}"
@@ -93,6 +107,7 @@ post('/make_bronze') do
         p "Ratinglist är därmed #{ratinglist}"
     end
     ratinglist += 1
+    session[:ratinglist] = ratinglist
     p "Ny ratinglist är #{ratinglist}"
     params.each do |key, value|
         p key
