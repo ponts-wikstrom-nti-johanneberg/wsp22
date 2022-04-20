@@ -371,9 +371,12 @@ nav {
 
 .div_list {
     display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
     width: 550px;
     height: auto;
-    grid-template-columns: 50px 550px;
+    grid-template-columns: 50px 500px;
     grid-template-rows: auto auto auto auto auto;
     grid-template-areas: 
     "ds5 d5s"
@@ -400,9 +403,10 @@ nav {
 .div_5star {
     grid-area: d5s;
     display: flex;
-    min-height: 60px;
+    max-height: 120px;
     background:rgba(211, 211, 211, 0.4);
-    overflow: scroll; 
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .div_show_4star {
@@ -417,9 +421,10 @@ nav {
 .div_4star {
     grid-area: d4s;
     display: flex;
-    min-height: 60px;
+    max-height: 180px;
     background:rgba(211, 211, 211, 0.4);
-    overflow: scroll; 
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .div_show_3star {
@@ -434,9 +439,10 @@ nav {
 .div_3star {
     grid-area: d3s;
     display: flex;
-    min-height: 60px;
+    max-height: 180px;
     background:rgba(211, 211, 211, 0.4);
-    overflow: scroll; 
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .div_show_2star {
@@ -451,9 +457,10 @@ nav {
 .div_2star {
     grid-area: d2s;
     display: flex;
-    min-height: 60px;
+    max-height: 180px;
     background:rgba(211, 211, 211, 0.4);
-    overflow: scroll; 
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .div_show_1star {
@@ -468,7 +475,8 @@ nav {
 .div_1star {
     grid-area: d1s;
     display: flex;
-    min-height: 60px;
+    max-height: 180px;
     background:rgba(211, 211, 211, 0.4);
-    overflow: scroll; 
+    flex-wrap: wrap; 
+    width: 100%;
 }

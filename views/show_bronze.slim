@@ -1,7 +1,7 @@
 h2 Ratings of bronze cards!
-
-.div_list
-    - rating_1star.each_with_index do |not_used, index|
+- rating_1star.each_with_index do |key, index, value|
+    - index += 1 
+    .div_list
         .div_show_1star
             p.show 1*
         .div_1star

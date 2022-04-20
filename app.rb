@@ -23,27 +23,29 @@ end
 get('/show_bronze') do
     db = SQLite3::Database.new("db/databas_be_like.db")
     db.results_as_hash = true
+    rating_1star, rating_2star, rating_3star, rating_4star, rating_5star = {}, {}, {}, {}, {}
+    ratinglist = db.execute("SELECT ratinglist FROM user_ratinglist_relation").last["ratinglist"].to_i
     p "ratinglist är #{ratinglist}"
     p ratinglist
-    # ratinglist = ratinglist.to_i
-    rating_1star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1*' AND ratinglist=?)",ratinglist)
-    rating_1star[index] = rating_1star
-    # rating_1star[ratinglist] = rating_1star
-
-    # p "rating_1star är #{rating_1star}"
-    rating_2star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2*' AND ratinglist=?)",ratinglist)
-    # rating_1star[ratinglist] = rating_2star
-    rating_2star[index] = rating_2star
-    rating_3star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3*' AND ratinglist=?)",ratinglist)
-    # rating_1star[ratinglist] = rating_3star
-    rating_3star[index] = rating_3star
-    rating_4star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4*' AND ratinglist=?)",ratinglist)
-    # rating_1star[ratinglist] = rating_4star
-    rating_4star[index] = rating_4star
-    rating_5star = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5*' AND ratinglist=?)",ratinglist)
-    # rating_1star[ratinglist] = rating_5star
-    rating_5star[index] = rating_5star
-    p "rating_5star är #{rating_5star}"
+    (1..ratinglist).to_a.each do |index|
+        # ratinglist = ratinglist.to_i
+        rating_1star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1*' AND ratinglist=?)", index)
+        # rating_1star[ratinglist] = rating_1star
+        # p "rating_1star är #{rating_1star}"
+        rating_2star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2*' AND ratinglist=?)", index)
+        # rating_1star[ratinglist] = rating_2star
+        rating_3star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3*' AND ratinglist=?)", index)
+        # rating_1star[ratinglist] = rating_3star
+        rating_4star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4*' AND ratinglist=?)", index)
+        # rating_1star[ratinglist] = rating_4star
+        rating_5star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5*' AND ratinglist=?)", index)
+        # rating_1star[ratinglist] = rating_5star
+        p "rating_1star är #{rating_1star}"
+        p "rating_2star är #{rating_2star}"
+        p "rating_3star är #{rating_3star}"
+        p "rating_4star är #{rating_4star}"
+        p "rating_5star är #{rating_5star}"
+    end
     slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist})
 end
 
