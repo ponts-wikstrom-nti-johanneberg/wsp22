@@ -10,13 +10,13 @@ nav {
     top: 0px;
     width: 100vw;
     height: 75px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 75px;
     grid-template-areas: 
-    "dn1 dn2 dn3";
+    "dn1 dn2 dn3 dn4";
 }
 
-#div_nav1 {
+#div_nav1be {
     grid-area: dn1;
     background-color: rgba(211, 211, 211, 0.4);
     display: flex;
@@ -25,7 +25,7 @@ nav {
     align-items: center;
 }
 
-#div_nav2 {
+#div_nav2be {
     grid-area: dn2;
     background-color: rgba(211, 211, 211, 0.4);
     display: flex;
@@ -34,7 +34,7 @@ nav {
     align-items: center;
 }
 
-#div_nav3 {
+#div_nav3be {
     grid-area: dn3;
     background-color: rgba(211, 211, 211, 0.4);
     display: flex;
@@ -42,6 +42,51 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
+#div_nav4be {
+    grid-area: dn4;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #div_nav1af {
+    grid-area: dn1;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_nav2af {
+    grid-area: dn2;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_nav3af {
+    grid-area: dn3;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_nav4af {
+    grid-area: dn4;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+} */
 
 .inner_wrapper {
     display: grid;
@@ -219,66 +264,6 @@ nav {
     width: 100%;
     padding: 10px;
 }
-
-/* .div_rating {
-    display: grid;
-    width: 40%;
-    height: 600px;
-    grid-template-columns: 60px 1fr;
-    grid-template-rows: 60px*10;
-    grid-template-areas: 
-    "rb11 rb12"
-    "rb21 rb22"
-    "rb31 rb32"
-    "rb41 rb42"
-    "rb51 rb52"
-    "rb61 rb62"
-    "rb71 rb72"
-    "rb81 rb82"
-    "rb91 rb92"
-    "rb101 rbrb102";
-    border-radius: 3px;
-}
-
-.div_rowbox11 {
-    grid-area: rb11;
-    background: red;
-}
-
-.div_rowbox12 {
-    grid-area: rb12;
-    background: black;
-} */
-/* .div_row1 
-            .div_rowbox11 
-            .div_rowbox12
-        .div_row2
-            .div_rowbox21 
-            .div_rowbox22
-        .div_row3 
-            .div_rowbox31 
-            .div_rowbox32 
-        .div_row4 
-            .div_rowbox41 
-            .div_rowbox42
-        .div_row5 
-            .div_rowbox51 
-            .div_rowbox52
-        .div_row6 
-            .div_rowbox61 
-            .div_rowbox62
-        .div_row7 
-            .div_rowbox71 
-            .div_rowbox72
-        .div_row8 
-            .div_rowbox81 
-            .div_rowbox82
-        .div_row9 
-            .div_rowbox91 
-            .div_rowbox92
-        .div_row10 
-            .div_rowbox101 
-            .div_rowbox102 */
 
 #hej {
     font-size: 300px;

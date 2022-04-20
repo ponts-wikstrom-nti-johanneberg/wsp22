@@ -4,6 +4,13 @@ require 'sqlite3'
 require 'bcrypt'
 require 'sinatra/reloader' if development?
 
+# Vad jag ska göra:
+# Lägga till Edit button, eventuellt att jag gör det på varje rad/varje kort. Tar isåfall all information från enskilda raden/kortet och går in på en ny sida som isåfall ändrar value på det kortet.
+# Hjälpfunktioner
+# Delete button
+# User settings, ska kunna editta ens egna, kunna eventuellt se ens egna
+# Admin settings? Kunna edita/ta bort andras?
+
 enable :sessions
 username = nil
 ratinglist = nil
