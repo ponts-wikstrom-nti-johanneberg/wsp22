@@ -36,16 +36,16 @@ get('/show_bronze') do
     p ratinglist
     (1..ratinglist).to_a.each do |index|
         # ratinglist = ratinglist.to_i
-        rating_1star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1*' AND ratinglist=?)", index)
+        rating_1star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_1star
         # p "rating_1star är #{rating_1star}"
-        rating_2star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2*' AND ratinglist=?)", index)
+        rating_2star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_2star
-        rating_3star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3*' AND ratinglist=?)", index)
+        rating_3star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_3star
-        rating_4star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4*' AND ratinglist=?)", index)
+        rating_4star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_4star
-        rating_5star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5*' AND ratinglist=?)", index)
+        rating_5star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_5star
         p "rating_1star är #{rating_1star}"
         p "rating_2star är #{rating_2star}"
@@ -65,13 +65,12 @@ post('/login') do
     pwdigest = result["Pwdigest"]
     id = result["id"]
     if BCrypt::Password.new(pwdigest) == password
-      session[:id] = id
+      session[:username] = username
       redirect('/')
     else
       "Wrong Password"
     end
-  
-  end
+end
 
 post('/users/new') do
     username = params[:username]
@@ -87,7 +86,7 @@ post('/users/new') do
     else
       "The passwords were not meant to be."
     end
-  end
+end
 
 get('/make_bronze') do
     if username == nil # Tidigare satt username som nil under enable :sessons, på get ('/login') får vi att username är något anant och går därför till den tänkta sidan.

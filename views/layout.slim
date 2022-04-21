@@ -8,7 +8,7 @@ html lang="en"
         link rel="stylesheet" href="css/stylesheet.css"/
     body
      
-        - if session[:id] == nil
+        - if session[:username] == nil
             nav
                 #div_nav1be
                     p.p_navbe Ultimate Little Alchemist Guide 
@@ -27,6 +27,6 @@ html lang="en"
                 #div_nav3be 
                     a.a_nav2af href="/dina_listor" Dina listor 
                 #div_nav4be 
-                    p.p_nav2af = session[:id]
+                    p.p_nav2af = session[:username]
 
     == yield

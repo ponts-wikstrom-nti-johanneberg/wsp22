@@ -16,6 +16,10 @@ nav {
     "dn1 dn2 dn3 dn4";
 }
 
+a {
+    color: black;
+}
+
 #div_nav1be {
     grid-area: dn1;
     background-color: rgba(211, 211, 211, 0.4);
@@ -359,21 +363,67 @@ nav {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
-    width: 550px;
+    width: 600px;
     height: auto;
-    grid-template-columns: 50px 500px;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 50px 500px 50px;
+    grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas: 
-    "ds5 d5s"
-    "ds4 d4s"
-    "ds3 d3s"
-    "ds2 d2s"
-    "ds1 d1s";
+    "dnd dnd dnd"
+    "ds5 d5s de5"
+    "ds4 d4s de4"
+    "ds3 d3s de3"
+    "ds2 d2s de2"
+    "ds1 d1s de1";
 }
 
 .img_show {
     width: 50px;
-    height: 60px;
+    height: 55px;
+    margin-bottom: 2.5px;
+    margin-top: 2.5px;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+}
+
+.div_name_and_delete {
+    grid-area: dnd;
+    display: grid;
+    height: 50px;
+    width: 100%;
+    grid-template-rows: 50px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "dn dd";
+}
+
+.div_name {
+    grid-area: dn;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: darkslategrey;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 0.5px solid black;
+}
+
+.div_delete {
+    grid-area: dd;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: darkslategrey;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 0.5px solid black;
+    border-right: 1px solid black;
 }
 
 .div_show_5star {
@@ -383,15 +433,29 @@ nav {
     justify-items: center;
     align-items: center;
     background: limegreen;
+    border: 1px solid black;
 }
 
 .div_5star {
     grid-area: d5s;
     display: flex;
-    max-height: 120px;
-    background:rgba(211, 211, 211, 0.4);
+    min-height: 50px;
+    max-height: 240px;
+    background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.div_edit5star {
+    grid-area: de5;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background:rgba(211, 211, 211);
+    border: 1px solid black;
 }
 
 .div_show_4star {
@@ -401,15 +465,29 @@ nav {
     justify-items: center;
     align-items: center;
     background: yellow;
+    border: 1px solid black;
 }
 
 .div_4star {
     grid-area: d4s;
     display: flex;
-    max-height: 180px;
-    background:rgba(211, 211, 211, 0.4);
+    min-height: 50px;
+    max-height: 240px;
+    background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.div_edit4star {
+    grid-area: de4;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background:rgba(211, 211, 211);
+    border: 1px solid black;
 }
 
 .div_show_3star {
@@ -419,15 +497,29 @@ nav {
     justify-items: center;
     align-items: center;
     background: blue;
+    border: 1px solid black;
 }
 
 .div_3star {
     grid-area: d3s;
     display: flex;
-    max-height: 180px;
-    background:rgba(211, 211, 211, 0.4);
+    min-height: 50px;
+    max-height: 240px;
+    background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.div_edit3star {
+    grid-area: de3;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background:rgba(211, 211, 211);
+    border: 1px solid black;
 }
 
 .div_show_2star {
@@ -437,15 +529,29 @@ nav {
     justify-items: center;
     align-items: center;
     background: red;
+    border: 1px solid black;
 }
 
 .div_2star {
     grid-area: d2s;
     display: flex;
-    max-height: 180px;
-    background:rgba(211, 211, 211, 0.4);
+    min-height: 50px;
+    max-height: 240px;
+    background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.div_edit2star {
+    grid-area: de2;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background:rgba(211, 211, 211);
+    border: 1px solid black;
 }
 
 .div_show_1star {
@@ -455,13 +561,27 @@ nav {
     justify-items: center;
     align-items: center;
     background: darkred;
+    border: 1px solid black;
 }
 
 .div_1star {
     grid-area: d1s;
     display: flex;
-    max-height: 180px;
-    background:rgba(211, 211, 211, 0.4);
+    min-height: 50px;
+    max-height: 240px;
+    background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.div_edit1star {
+    grid-area: de1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background:rgba(211, 211, 211);
+    border: 1px solid black;
 }
