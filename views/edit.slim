@@ -1,0 +1,28 @@
+form action="/#{result[0]['ratinglist']}/update" method="post" 
+    div.rating_wrapper
+        - result.each do |pictures|
+            div.div_rating
+                img.img_rating src="/img/#{pictures["Picture"]}" alt="Bronskort"/
+                select#rating name="card_rating #{pictures["id"]}" 
+                    - if pictures["show_rating"] == 1
+                        option selected="selected" value="1" 1*
+                    - else
+                        option value="1" 1*
+                    - if pictures["show_rating"] == 2
+                        option selected="selected" value="2" 2*
+                    - else
+                        option value="2" 2*
+                    - if pictures["show_rating"] == 3
+                        option selected="selected" value="3" 3*
+                    - else
+                        option value="3" 3*
+                    - if pictures["show_rating"] == 4
+                        option selected="selected" value="4" 4*
+                    - else
+                        option value="4" 4*
+                    - if pictures["show_rating"] == 5
+                        option selected="selected" value="5" 5*
+                    - else
+                        option value="5" 5*
+    div.submit_rating
+        input.rating type="submit" value="Edit it!"

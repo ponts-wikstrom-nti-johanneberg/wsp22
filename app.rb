@@ -30,7 +30,7 @@ end
 get('/show_bronze') do
     db = SQLite3::Database.new("db/databas_be_like.db")
     db.results_as_hash = true
-    rating_1star, rating_2star, rating_3star, rating_4star, rating_5star = {}, {}, {}, {}, {}
+    rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list = {}, {}, {}, {}, {}, {}
     ratinglist = db.execute("SELECT ratinglist FROM user_ratinglist_relation").last["ratinglist"].to_i
     p "ratinglist är #{ratinglist}"
     p ratinglist
@@ -38,6 +38,7 @@ get('/show_bronze') do
         # ratinglist = ratinglist.to_i
         rating_1star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_1star
+        # return rating_0star.to_s
         # p "rating_1star är #{rating_1star}"
         rating_2star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_2star
@@ -47,13 +48,15 @@ get('/show_bronze') do
         # rating_1star[ratinglist] = rating_4star
         rating_5star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5' AND ratinglist=?)", index)
         # rating_1star[ratinglist] = rating_5star
-        p "rating_1star är #{rating_1star}"
-        p "rating_2star är #{rating_2star}"
-        p "rating_3star är #{rating_3star}"
-        p "rating_4star är #{rating_4star}"
-        p "rating_5star är #{rating_5star}"
+        username_list[index] = db.execute("SELECT Name FROM user WHERE id IN (SELECT user_id FROM user_ratinglist_relation WHERE ratinglist=?)", index).first
+        # p "rating_1star är #{rating_1star}"
+        # p "rating_2star är #{rating_2star}"
+        # p "rating_3star är #{rating_3star}"
+        # p "rating_4star är #{rating_4star}"
+        # p "rating_5star är #{rating_5star}"
+        p "username_list är #{username_list}"
     end
-    slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist})
+    slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
 end
 
 post('/login') do
@@ -127,4 +130,35 @@ post('/make_bronze') do
         p show_rating
     end
     redirect('/show_bronze')
+end
+
+post ('/:index/update') do
+    db = SQLite3::Database.new("db/databas_be_like.db")
+    db.results_as_hash = true
+    ratinglist = params[:index]
+    params.each do |key, value|
+        p key
+        p value
+        card_id = key.split(" ")[1].to_i
+        p card_id
+        card_rating = value
+        show_rating = db.execute("UPDATE user_ratinglist_relation SET show_rating=? WHERE ratinglist=? AND cards_id=?", card_rating, ratinglist, card_id)
+        p show_rating
+    end
+    redirect('/show_bronze')
+end
+
+post ('/:index/delete') do
+    ratinglist = params[:index]
+    db = SQLite3::Database.new("db/databas_be_like.db")
+    db.execute("DELETE FROM user_ratinglist_relation WHERE ratinglist = ?",ratinglist)
+    redirect('/show_bronze')
+end
+
+get('/:index/edit') do
+    ratinglist = params[:index]
+    db = SQLite3::Database.new("db/databas_be_like.db")
+    db.results_as_hash = true
+    result = db.execute("SELECT * FROM cards INNER JOIN user_ratinglist_relation ON cards.id = cards_id WHERE ratinglist=?", ratinglist)
+    slim(:edit, locals:{result:result})
 end

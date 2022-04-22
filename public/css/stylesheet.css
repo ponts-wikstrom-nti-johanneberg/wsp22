@@ -9,9 +9,9 @@ nav {
     display: grid;
     top: 0px;
     width: 100vw;
-    height: 75px;
+    height: 50px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 75px;
+    grid-template-rows: 50px;
     grid-template-areas: 
     "dn1 dn2 dn3 dn4";
 }
@@ -363,17 +363,17 @@ a {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
-    width: 600px;
+    width: 602px;
     height: auto;
-    grid-template-columns: 50px 500px 50px;
+    grid-template-columns: 50px 552px;
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas: 
-    "dnd dnd dnd"
-    "ds5 d5s de5"
-    "ds4 d4s de4"
-    "ds3 d3s de3"
-    "ds2 d2s de2"
-    "ds1 d1s de1";
+    "dne dne"
+    "ds5 d5s"
+    "ds4 d4s"
+    "ds3 d3s"
+    "ds2 d2s"
+    "ds1 d1s";
 }
 
 .img_show {
@@ -386,14 +386,14 @@ a {
 }
 
 .div_name_and_delete {
-    grid-area: dnd;
+    grid-area: dne;
     display: grid;
     height: 50px;
     width: 100%;
     grid-template-rows: 50px;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 300px 151px 151px;
     grid-template-areas: 
-    "dn dd";
+    "dn de dd";
 }
 
 .div_name {
@@ -411,8 +411,7 @@ a {
     border-right: 0.5px solid black;
 }
 
-.div_delete {
-    grid-area: dd;
+.div_edit {
     display: flex;
     width: 100%;
     height: 100%;
@@ -426,6 +425,21 @@ a {
     border-right: 1px solid black;
 }
 
+.div_delete {
+    grid-area: dd;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: darkslategrey;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 0.5px solid black;
+    border-right: 0.5px solid black;
+}
+
 .div_show_5star {
     grid-area: ds5;
     display: flex;
@@ -433,7 +447,9 @@ a {
     justify-items: center;
     align-items: center;
     background: limegreen;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .div_5star {
@@ -444,17 +460,6 @@ a {
     background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.div_edit5star {
-    grid-area: de5;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background:rgba(211, 211, 211);
     border: 1px solid black;
 }
 
@@ -465,7 +470,9 @@ a {
     justify-items: center;
     align-items: center;
     background: yellow;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .div_4star {
@@ -476,17 +483,6 @@ a {
     background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.div_edit4star {
-    grid-area: de4;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background:rgba(211, 211, 211);
     border: 1px solid black;
 }
 
@@ -497,7 +493,9 @@ a {
     justify-items: center;
     align-items: center;
     background: blue;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .div_3star {
@@ -508,17 +506,6 @@ a {
     background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.div_edit3star {
-    grid-area: de3;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background:rgba(211, 211, 211);
     border: 1px solid black;
 }
 
@@ -529,7 +516,9 @@ a {
     justify-items: center;
     align-items: center;
     background: red;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .div_2star {
@@ -540,17 +529,6 @@ a {
     background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.div_edit2star {
-    grid-area: de2;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background:rgba(211, 211, 211);
     border: 1px solid black;
 }
 
@@ -561,7 +539,9 @@ a {
     justify-items: center;
     align-items: center;
     background: darkred;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .div_1star {
@@ -572,16 +552,5 @@ a {
     background:rgba(211, 211, 211);
     flex-wrap: wrap; 
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.div_edit1star {
-    grid-area: de1;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    background:rgba(211, 211, 211);
     border: 1px solid black;
 }
