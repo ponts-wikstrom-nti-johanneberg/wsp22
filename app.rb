@@ -3,7 +3,7 @@ require 'slim'
 require 'sqlite3'
 require 'bcrypt'
 require 'sinatra/reloader' if development?
-require_relative 'model.rb'
+require_relative '/model/model.rb'
 
 # Vad jag ska göra:
 # Lägga till Edit button, eventuellt att jag gör det på varje rad/varje kort. Tar isåfall all information från enskilda raden/kortet och går in på en ny sida som isåfall ändrar value på det kortet.
@@ -13,19 +13,22 @@ require_relative 'model.rb'
 # Admin settings? Kunna edita/ta bort andras?
 
 enable :sessions
+include Model
 username = nil
 ratinglist = nil
 
+# Display Start Menu
 get ('/') do
     slim(:start)
 end
 
-get ('/register') do
-    slim(:register)
+# 
+get ('/users/register') do
+    slim(:"/users/register")
 end
 
-get ('/login') do
-    slim(:login)
+get ('/users/login') do
+    slim(:"/users/login")
 end
 
 get('/show_bronze') do
@@ -34,14 +37,14 @@ get('/show_bronze') do
     slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
 end
 
-get('/your_lists') do
+get('/users/your_lists') do
     rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list = {}, {}, {}, {}, {}, {}
     your_lists(rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list)
-    slim(:your_lists, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
+    slim(:"/users/your_lists", locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
 end
 
 # Funktionen kollar ifall personen som loggar in använder sig av rätt lösenord med motsvarande användarnamn.
-before ('/login') do
+before ('/users/login') do
     username = params[:username]
     if session[:logging] != nil
         if Time.now - session[:logging] < 10
@@ -50,7 +53,7 @@ before ('/login') do
     end
 end
 
-post('/login') do
+post('/users/login') do
     username = params[:username]
     password = params[:password]
     session[:logging] = Time.now
@@ -134,5 +137,5 @@ end
 
 get('/error/:error_message') do
     error_message = params[:error_message].split("_").join(" ")
-    slim(:error, locals:{username:session[:username], error_message:error_message})
+    slim(:"/error/error", locals:{username:session[:username], error_message:error_message})
 end

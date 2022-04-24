@@ -15,9 +15,9 @@ html lang="en"
                 #div_nav2be 
                     a.a_nav1be href="/" Home
                 #div_nav3be
-                    a.a_nav2be href="/register" Register 
+                    a.a_nav2be href="/users/register" Register 
                 #div_nav4be
-                    a.a_nav3be href="/login" Login
+                    a.a_nav3be href="/users/login" Login
         - else
             nav
                 #div_nav1be
@@ -25,7 +25,7 @@ html lang="en"
                 #div_nav2be
                     a.a_nav1af href="/" Home
                 #div_nav3be 
-                    a.a_nav2af href="/your_lists" Your lists
+                    a.a_nav2af href="/users/your_lists" Your lists
                 #div_nav4be 
                     - if session[:username] == "Admin123"
                         p Hej Admin 
