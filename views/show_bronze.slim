@@ -1,43 +1,49 @@
 h2 Ratings of bronze cards!
 - rating_1star.each_with_index do |key, index, value|
     - index += 1 
-    .div_list
-        .div_name_and_delete
-            .div_name 
-                p = username_list[index]["Name"]
-            .div_delete
-                - if username_list[index]["Name"] == session[:username]
-                    form action="#{index}/delete" method="POST"
-                        input type="submit" value="Delete!"
-                - else
-                    p 
-            .div_edit 
-                - if username_list[index]["Name"] == session[:username]
-                    a href="#{index}/edit" Edit
-                - else 
-                    p 
-        .div_show_1star
-            p.show 1*
-        .div_1star
-            - rating_1star[index].each do |card|
-                img.img_show src="img/#{card["Picture"]}"
-        .div_show_2star
-            p.show 2*
-        .div_2star 
-            -rating_2star[index].each do |card|
-                img.img_show src="img/#{card["Picture"]}"
-        .div_show_3star
-            p.show 3*
-        .div_3star 
-            -rating_3star[index].each do |card|
-                img.img_show src="img/#{card["Picture"]}"
-        .div_show_4star
-            p.show 4*
-        .div_4star 
-            -rating_4star[index].each do |card|
-                img.img_show src="img/#{card["Picture"]}"
-        .div_show_5star
-            p.show 5*
-        .div_5star 
-            -rating_5star[index].each do |card|
-                img.img_show src="img/#{card["Picture"]}"
+    - if username_list[index] != nil
+        .div_list
+            .div_name_and_delete
+                .div_name 
+                    - if username_list[index]["Name"] == "Admin123"
+                        p Admin 
+                    - else
+                        p = username_list[index]["Name"]
+                .div_edit 
+                    - if username_list[index]["Name"] == session[:username]
+                        a href="#{index}/edit" Edit
+                    - else 
+                        p 
+                .div_delete
+                    - if username_list[index]["Name"] == session[:username] ||  session[:username] == "Admin123"
+                        form action="#{index}/delete" method="POST"
+                            input type="submit" value="Delete!"
+                    - else
+                        p 
+            .div_show_1star
+                p.show 1*
+            .div_1star
+                - rating_1star[index].each do |card|
+                    img.img_show src="img/#{card["Picture"]}"
+            .div_show_2star
+                p.show 2*
+            .div_2star 
+                -rating_2star[index].each do |card|
+                    img.img_show src="img/#{card["Picture"]}"
+            .div_show_3star
+                p.show 3*
+            .div_3star 
+                -rating_3star[index].each do |card|
+                    img.img_show src="img/#{card["Picture"]}"
+            .div_show_4star
+                p.show 4*
+            .div_4star 
+                -rating_4star[index].each do |card|
+                    img.img_show src="img/#{card["Picture"]}"
+            .div_show_5star
+                p.show 5*
+            .div_5star 
+                -rating_5star[index].each do |card|
+                    img.img_show src="img/#{card["Picture"]}"
+        
+    

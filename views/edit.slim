@@ -1,8 +1,9 @@
+h2 Edit your lists
 form action="/#{result[0]['ratinglist']}/update" method="post" 
-    div.rating_wrapper
+    div.edit_wrapper
         - result.each do |pictures|
-            div.div_rating
-                img.img_rating src="/img/#{pictures["Picture"]}" alt="Bronskort"/
+            div.div_edit_card
+                img.img_edit src="/img/#{pictures["Picture"]}" alt="Bronskort"/
                 select#rating name="card_rating #{pictures["id"]}" 
                     - if pictures["show_rating"] == 1
                         option selected="selected" value="1" 1*
@@ -24,5 +25,5 @@ form action="/#{result[0]['ratinglist']}/update" method="post"
                         option selected="selected" value="5" 5*
                     - else
                         option value="5" 5*
-    div.submit_rating
-        input.rating type="submit" value="Edit it!"
+    div.submit_edit
+        input.edit type="submit" value="Edit it!"

@@ -3,6 +3,7 @@ require 'slim'
 require 'sqlite3'
 require 'bcrypt'
 require 'sinatra/reloader' if development?
+require_relative 'model.rb'
 
 # Vad jag ska göra:
 # Lägga till Edit button, eventuellt att jag gör det på varje rad/varje kort. Tar isåfall all information från enskilda raden/kortet och går in på en ny sida som isåfall ändrar value på det kortet.
@@ -28,66 +29,49 @@ get ('/login') do
 end
 
 get('/show_bronze') do
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.results_as_hash = true
     rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list = {}, {}, {}, {}, {}, {}
-    ratinglist = db.execute("SELECT ratinglist FROM user_ratinglist_relation").last["ratinglist"].to_i
-    p "ratinglist är #{ratinglist}"
-    p ratinglist
-    (1..ratinglist).to_a.each do |index|
-        # ratinglist = ratinglist.to_i
-        rating_1star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='1' AND ratinglist=?)", index)
-        # rating_1star[ratinglist] = rating_1star
-        # return rating_0star.to_s
-        # p "rating_1star är #{rating_1star}"
-        rating_2star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='2' AND ratinglist=?)", index)
-        # rating_1star[ratinglist] = rating_2star
-        rating_3star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='3' AND ratinglist=?)", index)
-        # rating_1star[ratinglist] = rating_3star
-        rating_4star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='4' AND ratinglist=?)", index)
-        # rating_1star[ratinglist] = rating_4star
-        rating_5star[index] = db.execute("SELECT * FROM cards WHERE id IN (SELECT cards_id FROM user_ratinglist_relation WHERE show_rating='5' AND ratinglist=?)", index)
-        # rating_1star[ratinglist] = rating_5star
-        username_list[index] = db.execute("SELECT Name FROM user WHERE id IN (SELECT user_id FROM user_ratinglist_relation WHERE ratinglist=?)", index).first
-        # p "rating_1star är #{rating_1star}"
-        # p "rating_2star är #{rating_2star}"
-        # p "rating_3star är #{rating_3star}"
-        # p "rating_4star är #{rating_4star}"
-        # p "rating_5star är #{rating_5star}"
-        p "username_list är #{username_list}"
-    end
+    show_bronze(rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list)
     slim(:show_bronze, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
+end
+
+get('/your_lists') do
+    rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list = {}, {}, {}, {}, {}, {}
+    your_lists(rating_1star, rating_2star, rating_3star, rating_4star, rating_5star, username_list)
+    slim(:your_lists, locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
+end
+
+# Funktionen kollar ifall personen som loggar in använder sig av rätt lösenord med motsvarande användarnamn.
+before ('/login') do
+    username = params[:username]
+    if session[:logging] != nil
+        if Time.now - session[:logging] < 10
+            redirect('/error/You_are_logging_in_too_fast._Please_slow_down.')
+        end
+    end
 end
 
 post('/login') do
     username = params[:username]
     password = params[:password]
-    db = SQLite3::Database.new('db/databas_be_like.db')
-    db.results_as_hash = true
-    result = db.execute("SELECT * FROM user WHERE Name = ?",username).first
-    pwdigest = result["Pwdigest"]
-    id = result["id"]
-    if BCrypt::Password.new(pwdigest) == password
-      session[:username] = username
-      redirect('/')
-    else
-      "Wrong Password"
+    session[:logging] = Time.now
+    username = bcrypt(username, password)
+    if username == nil
+        redirect('/error/Wrong_password_or_username.')
     end
+    session[:username] = username
+    redirect('/')
 end
 
 post('/users/new') do
     username = params[:username]
     password = params[:password]
     password_confirm = params[:password_confirm]
-  
-    if password == password_confirm
-      password_digest = BCrypt::Password.create(password)
-      db = SQLite3::Database.new('db/databas_be_like.db')
-      db.execute("INSERT INTO user (Name,Pwdigest) VALUES (?,?)",username,password_digest)
-      session[:username] = username
-      redirect('/')
+    username = new_user(username, password, password_confirm)
+    p username
+    if username == nil
+        redirect('/error/The_passwords_did_not_match_each_other._Did_you_write_everything_correctly?')
     else
-      "The passwords were not meant to be."
+        redirect('/')
     end
 end
 
@@ -95,30 +79,17 @@ get('/make_bronze') do
     if username == nil # Tidigare satt username som nil under enable :sessons, på get ('/login') får vi att username är något anant och går därför till den tänkta sidan.
         slim(:login)
     else
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.results_as_hash = true
-    result = db.execute("SELECT * FROM cards")
-    p result
+    result = select_cards()
     slim(:make_yours_bronze, locals:{result:result})
     end
 end
 
 post('/make_bronze') do
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.results_as_hash = true
-    user_id = db.execute("SELECT id FROM user WHERE Name = ?", username).first
-    user_id = user_id[0].to_i
+    db = connect_to_db('db/databas_be_like.db')
+    username = session[:username]
+    user_id = get_user_id(db, username)
     p "user_id är #{user_id}"
-    ratinglist = db.execute("SELECT ratinglist FROM user_ratinglist_relation").last
-    p "Ratinglist är #{ratinglist}"
-    if ratinglist == nil
-        ratinglist = 0
-    else 
-        ratinglist = ratinglist[ratinglist.length - 1].to_i
-        p "Ratinglist är därmed #{ratinglist}"
-    end
-    ratinglist += 1
-    session[:ratinglist] = ratinglist
+    ratinglist = get_ratinglist(db)
     p "Ny ratinglist är #{ratinglist}"
     params.each do |key, value|
         p key
@@ -126,6 +97,7 @@ post('/make_bronze') do
         card_id = key.split(" ")[1].to_i
         p card_id
         card_rating = value
+        # Kan inte lägga denna del i model.rb, kollar gärna över detta senare, men i nuläget vet jag inte varför.
         show_rating = db.execute("INSERT INTO user_ratinglist_relation (show_rating, cards_id, ratinglist, user_id) VALUES (?,?,?,?)", card_rating, card_id, ratinglist, user_id)
         p show_rating
     end
@@ -133,15 +105,15 @@ post('/make_bronze') do
 end
 
 post ('/:index/update') do
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.results_as_hash = true
     ratinglist = params[:index]
+    db = connect_to_db('db/databas_be_like.db')
     params.each do |key, value|
-        p key
-        p value
+        p "key är #{key}"
+        p "value är #{value}" 
         card_id = key.split(" ")[1].to_i
-        p card_id
+        p "card_id är #{card_id}"
         card_rating = value
+        # Kan inte lägga denna del i model.rb, kollar gärna över detta senare, men i nuläget vet jag inte varför.
         show_rating = db.execute("UPDATE user_ratinglist_relation SET show_rating=? WHERE ratinglist=? AND cards_id=?", card_rating, ratinglist, card_id)
         p show_rating
     end
@@ -150,15 +122,17 @@ end
 
 post ('/:index/delete') do
     ratinglist = params[:index]
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.execute("DELETE FROM user_ratinglist_relation WHERE ratinglist = ?",ratinglist)
+    delete_list(ratinglist)
     redirect('/show_bronze')
 end
 
 get('/:index/edit') do
     ratinglist = params[:index]
-    db = SQLite3::Database.new("db/databas_be_like.db")
-    db.results_as_hash = true
-    result = db.execute("SELECT * FROM cards INNER JOIN user_ratinglist_relation ON cards.id = cards_id WHERE ratinglist=?", ratinglist)
+    result = edit_list(ratinglist)
     slim(:edit, locals:{result:result})
+end
+
+get('/error/:error_message') do
+    error_message = params[:error_message].split("_").join(" ")
+    slim(:error, locals:{username:session[:username], error_message:error_message})
 end

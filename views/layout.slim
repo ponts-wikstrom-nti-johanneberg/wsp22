@@ -5,7 +5,7 @@ html lang="en"
         meta http-equiv="X-UA-Compatible" content="IE=edge"/
         meta name="viewport" content="width=device-width, initial-scale=1.0"/
         title Document
-        link rel="stylesheet" href="css/stylesheet.css"/
+        link rel="stylesheet" href="/css/stylesheet.css"/
     body
      
         - if session[:username] == nil
@@ -25,8 +25,11 @@ html lang="en"
                 #div_nav2be
                     a.a_nav1af href="/" Home
                 #div_nav3be 
-                    a.a_nav2af href="/dina_listor" Dina listor 
+                    a.a_nav2af href="/your_lists" Your lists
                 #div_nav4be 
-                    p.p_nav2af = session[:username]
+                    - if session[:username] == "Admin123"
+                        p Hej Admin 
+                    - else
+                        p.p_nav2af Hej #{session[:username]}
 
     == yield
