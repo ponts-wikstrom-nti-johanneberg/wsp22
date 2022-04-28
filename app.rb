@@ -50,7 +50,7 @@ end
 # @rating_3star [Hash], hash with cards that has 3 star 
 # @rating_4star [Hash], hash with cards that has 4 star 
 # @rating_5star [Hash], hash with cards that has 5 star 
-# @username_list [hash], hash with a list of usernames that has made a list
+# @username_list [Hash], hash with a list of usernames that has made a list
 #
 # @see Model#your_lists
 get('/users/your_lists') do

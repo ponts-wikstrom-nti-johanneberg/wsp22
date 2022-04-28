@@ -75,7 +75,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd>Model</dd>
+      <dd><span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></dd>
   </dl>
   
   
@@ -85,6 +85,16 @@
   
 </div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span>
+    
+  
+    
+  
+</p>
 
 
 
@@ -417,6 +427,16 @@
 
 
   
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Model.html#bcrypt-instance_method" title="Model#bcrypt (method)">#bcrypt</a></span>, <span class='object_link'><a href="Model.html#connect_to_db-instance_method" title="Model#connect_to_db (method)">#connect_to_db</a></span>, <span class='object_link'><a href="Model.html#delete_list-instance_method" title="Model#delete_list (method)">#delete_list</a></span>, <span class='object_link'><a href="Model.html#edit_list-instance_method" title="Model#edit_list (method)">#edit_list</a></span>, <span class='object_link'><a href="Model.html#get_ratinglist-instance_method" title="Model#get_ratinglist (method)">#get_ratinglist</a></span>, <span class='object_link'><a href="Model.html#get_user_id-instance_method" title="Model#get_user_id (method)">#get_user_id</a></span>, <span class='object_link'><a href="Model.html#new_user-instance_method" title="Model#new_user (method)">#new_user</a></span>, <span class='object_link'><a href="Model.html#select_cards-instance_method" title="Model#select_cards (method)">#select_cards</a></span>, <span class='object_link'><a href="Model.html#show_bronze-instance_method" title="Model#show_bronze (method)">#show_bronze</a></span>, <span class='object_link'><a href="Model.html#your_lists-instance_method" title="Model#your_lists (method)">#your_lists</a></span></p>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -510,7 +530,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#edit_list</li>
+      <li><span class='object_link'><a href="Model.html#edit_list-instance_method" title="Model#edit_list (method)">Model#edit_list</a></span></li>
     
   </ul>
 
@@ -533,7 +553,7 @@
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/:index/edit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_edit_list'>edit_list</span><span class='lparen'>(</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_edit_list'><span class='object_link'><a href="Model.html#edit_list-instance_method" title="Model#edit_list (method)">edit_list</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:edit</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>result:</span><span class='id identifier rubyid_result'>result</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -611,7 +631,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#select_cards</li>
+      <li><span class='object_link'><a href="Model.html#select_cards-instance_method" title="Model#select_cards (method)">Model#select_cards</a></span></li>
     
   </ul>
 
@@ -639,7 +659,7 @@
     <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>==</span> <span class='kw'>nil</span> <span class='comment'># Tidigare satt username som nil under enable :sessons, på get (&#39;/login&#39;) får vi att username är något anant och går därför till den tänkta sidan.
 </span>        <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:login</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
-    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_select_cards'>select_cards</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_select_cards'><span class='object_link'><a href="Model.html#select_cards-instance_method" title="Model#select_cards (method)">select_cards</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:make_yours_bronze</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>result:</span><span class='id identifier rubyid_result'>result</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -671,7 +691,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#show_bronze</li>
+      <li><span class='object_link'><a href="Model.html#show_bronze-instance_method" title="Model#show_bronze (method)">Model#show_bronze</a></span></li>
     
   </ul>
 
@@ -694,7 +714,7 @@
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/show_bronze</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_show_bronze'>show_bronze</span><span class='lparen'>(</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_show_bronze'><span class='object_link'><a href="Model.html#show_bronze-instance_method" title="Model#show_bronze (method)">show_bronze</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:show_bronze</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>rating_1star:</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='label'>rating_2star:</span><span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='label'>rating_3star:</span><span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='label'>rating_4star:</span><span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='label'>rating_5star:</span><span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='label'>ratinglist:</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='comma'>,</span> <span class='label'>username_list:</span><span class='id identifier rubyid_username_list'>username_list</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -811,7 +831,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#your_lists</li>
+      <li><span class='object_link'><a href="Model.html#your_lists-instance_method" title="Model#your_lists (method)">Model#your_lists</a></span></li>
     
   </ul>
 
@@ -834,7 +854,7 @@
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/your_lists</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_your_lists'>your_lists</span><span class='lparen'>(</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_your_lists'><span class='object_link'><a href="Model.html#your_lists-instance_method" title="Model#your_lists (method)">your_lists</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='id identifier rubyid_username_list'>username_list</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:&quot;/users/your_lists&quot;</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>rating_1star:</span><span class='id identifier rubyid_rating_1star'>rating_1star</span><span class='comma'>,</span> <span class='label'>rating_2star:</span><span class='id identifier rubyid_rating_2star'>rating_2star</span><span class='comma'>,</span> <span class='label'>rating_3star:</span><span class='id identifier rubyid_rating_3star'>rating_3star</span><span class='comma'>,</span> <span class='label'>rating_4star:</span><span class='id identifier rubyid_rating_4star'>rating_4star</span><span class='comma'>,</span> <span class='label'>rating_5star:</span><span class='id identifier rubyid_rating_5star'>rating_5star</span><span class='comma'>,</span> <span class='label'>ratinglist:</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='comma'>,</span> <span class='label'>username_list:</span><span class='id identifier rubyid_username_list'>username_list</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -887,7 +907,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#delete_list</li>
+      <li><span class='object_link'><a href="Model.html#delete_list-instance_method" title="Model#delete_list (method)">Model#delete_list</a></span></li>
     
   </ul>
 
@@ -910,7 +930,7 @@
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/:index/delete</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_delete_list'>delete_list</span><span class='lparen'>(</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_delete_list'><span class='object_link'><a href="Model.html#delete_list-instance_method" title="Model#delete_list (method)">delete_list</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/show_bronze</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1030,7 +1050,7 @@
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/:index/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'>connect_to_db</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/databas_be_like.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'><span class='object_link'><a href="Model.html#connect_to_db-instance_method" title="Model#connect_to_db (method)">connect_to_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/databas_be_like.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
         <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>key är </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value är </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> 
@@ -1147,11 +1167,11 @@
       <pre class="code"><span class="info file"># File 'app.rb', line 150</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/make_bronze</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'>connect_to_db</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/databas_be_like.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_connect_to_db'><span class='object_link'><a href="Model.html#connect_to_db-instance_method" title="Model#connect_to_db (method)">connect_to_db</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/databas_be_like.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_get_user_id'>get_user_id</span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_get_user_id'><span class='object_link'><a href="Model.html#get_user_id-instance_method" title="Model#get_user_id (method)">get_user_id</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_id är </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_user_id'>user_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_get_ratinglist'>get_ratinglist</span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_get_ratinglist'><span class='object_link'><a href="Model.html#get_ratinglist-instance_method" title="Model#get_ratinglist (method)">get_ratinglist</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_p'>p</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ny ratinglist är </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ratinglist'>ratinglist</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
         <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_key'>key</span>
@@ -1231,7 +1251,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#bcrypt</li>
+      <li><span class='object_link'><a href="Model.html#bcrypt-instance_method" title="Model#bcrypt (method)">Model#bcrypt</a></span></li>
     
   </ul>
 
@@ -1262,7 +1282,7 @@
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:logging</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
-    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_bcrypt'>bcrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_bcrypt'><span class='object_link'><a href="Model.html#bcrypt-instance_method" title="Model#bcrypt (method)">bcrypt</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>==</span> <span class='kw'>nil</span>
         <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/error/Wrong_password_or_username.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
@@ -1297,7 +1317,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Model#new_user</li>
+      <li><span class='object_link'><a href="Model.html#new_user-instance_method" title="Model#new_user (method)">Model#new_user</a></span></li>
     
   </ul>
 
@@ -1329,7 +1349,7 @@
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_password_confirm'>password_confirm</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:password_confirm</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_new_user'>new_user</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='comma'>,</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_new_user'><span class='object_link'><a href="Model.html#new_user-instance_method" title="Model#new_user (method)">new_user</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='comma'>,</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_username'>username</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>==</span> <span class='kw'>nil</span>
         <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/error/The_passwords_did_not_match_each_other._Did_you_write_everything_correctly?</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1347,7 +1367,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr 24 23:41:06 2022 by
+  Generated on Mon Apr 25 10:55:42 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-3.0.3).
 </div>
