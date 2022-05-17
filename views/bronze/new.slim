@@ -1,10 +1,10 @@
 h2 Rate your cards
 
-form action="/make_bronze" method="post" enctype="multipart/form-data"
+form action="/bronze" method="post" enctype="multipart/form-data"
     div.rating_wrapper
         - result.each do |pictures|
             div.div_rating
-                img.img_rating src="img/#{pictures["Picture"]}" alt="Bronskort"/
+                img.img_rating src="/img/#{pictures["Picture"]}" alt="Bronskort"/
                 select#rating name="card_rating #{pictures["id"]}" 
                     option value="1" 1*
                     option value="2" 2*

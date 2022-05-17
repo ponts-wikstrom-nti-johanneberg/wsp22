@@ -8,9 +8,9 @@ h2 Your lists
                     .div_name 
                         p = session[:username]
                     .div_edit 
-                        a href="#{index}/edit" Edit
+                        a href="/bronze/#{index}/edit" Edit
                     .div_delete
-                        form action="#{index}/delete" method="POST"
+                        form action="/bronze/#{index}/delete" method="POST"
                             input type="submit" value="Delete!"
                 .div_show_1star
                     p.show 1*
