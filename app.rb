@@ -61,10 +61,21 @@ get('/users/your_lists') do
     slim(:"/users/your_lists", locals:{rating_1star:rating_1star, rating_2star:rating_2star, rating_3star:rating_3star, rating_4star:rating_4star, rating_5star:rating_5star, ratinglist:ratinglist, username_list:username_list})
 end
 
+# Attemps login and checks if the user has done everything correctly while registering.
+#
+# @param [String], username, The username
+# @param [String], password, The password
+# @param [String], password_confirm, The repeated password
+# @check_user [Boolean], checks if the username is already existing or not.
+#
+# Redirects to /error/:message if anything is true.
+#
+# @see Model#check_user
 before ('/users/new') do
     username = params[:username]
     password = params[:password]
     password_confirm = params[:password_confirm]
+    check_user = check_user(username)
     if username == ""
         redirect('/error/You_did_not_write_a_name._Please_write_a_name.')
     elsif password == ""
@@ -73,6 +84,8 @@ before ('/users/new') do
         redirect('/error/You_did_not_write_anything_on_Password_Confirm._Please_write_something.')
     elsif username.length > 15
         redirect('/error/Your_name_is_too_long._Please_shorten_it_down_to_15_characters.')
+    elsif check_user == true
+        redirect('/error/That_name_is_already_taken._Please_try_another_name.')
     end
 end
 

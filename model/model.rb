@@ -105,6 +105,21 @@ module Model
         end
     end
 
+    # Checks if username is already existing in the database.
+    #
+    # @db [Array], checks the elements "Name" in the table user.
+    # @option params [String],username, The username.
+    #
+    # @return True if username is already existing.
+    # @return False if username is not already existing.
+    def check_user(username)
+        db = SQLite3::Database.new('db/databas_be_like.db')
+        db.results_as_hash = false
+        result = db.execute("SELECT Name FROM user")
+        p result
+        return result.include?([username])
+    end
+
     # Selects all of the fields in the table cards
     #
     # @db [Hash], connects database with ruby

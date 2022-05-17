@@ -435,7 +435,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Model.html" title="Model (module)">Model</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Model.html#bcrypt-instance_method" title="Model#bcrypt (method)">#bcrypt</a></span>, <span class='object_link'><a href="Model.html#before_update_list-instance_method" title="Model#before_update_list (method)">#before_update_list</a></span>, <span class='object_link'><a href="Model.html#connect_to_db-instance_method" title="Model#connect_to_db (method)">#connect_to_db</a></span>, <span class='object_link'><a href="Model.html#delete_list-instance_method" title="Model#delete_list (method)">#delete_list</a></span>, <span class='object_link'><a href="Model.html#edit_list-instance_method" title="Model#edit_list (method)">#edit_list</a></span>, <span class='object_link'><a href="Model.html#get_ratinglist-instance_method" title="Model#get_ratinglist (method)">#get_ratinglist</a></span>, <span class='object_link'><a href="Model.html#get_user_id-instance_method" title="Model#get_user_id (method)">#get_user_id</a></span>, <span class='object_link'><a href="Model.html#make_bronze-instance_method" title="Model#make_bronze (method)">#make_bronze</a></span>, <span class='object_link'><a href="Model.html#new_user-instance_method" title="Model#new_user (method)">#new_user</a></span>, <span class='object_link'><a href="Model.html#select_cards-instance_method" title="Model#select_cards (method)">#select_cards</a></span>, <span class='object_link'><a href="Model.html#show_bronze-instance_method" title="Model#show_bronze (method)">#show_bronze</a></span>, <span class='object_link'><a href="Model.html#update_list-instance_method" title="Model#update_list (method)">#update_list</a></span>, <span class='object_link'><a href="Model.html#your_lists-instance_method" title="Model#your_lists (method)">#your_lists</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Model.html#bcrypt-instance_method" title="Model#bcrypt (method)">#bcrypt</a></span>, <span class='object_link'><a href="Model.html#before_update_list-instance_method" title="Model#before_update_list (method)">#before_update_list</a></span>, <span class='object_link'><a href="Model.html#check_user-instance_method" title="Model#check_user (method)">#check_user</a></span>, <span class='object_link'><a href="Model.html#connect_to_db-instance_method" title="Model#connect_to_db (method)">#connect_to_db</a></span>, <span class='object_link'><a href="Model.html#delete_list-instance_method" title="Model#delete_list (method)">#delete_list</a></span>, <span class='object_link'><a href="Model.html#edit_list-instance_method" title="Model#edit_list (method)">#edit_list</a></span>, <span class='object_link'><a href="Model.html#get_ratinglist-instance_method" title="Model#get_ratinglist (method)">#get_ratinglist</a></span>, <span class='object_link'><a href="Model.html#get_user_id-instance_method" title="Model#get_user_id (method)">#get_user_id</a></span>, <span class='object_link'><a href="Model.html#make_bronze-instance_method" title="Model#make_bronze (method)">#make_bronze</a></span>, <span class='object_link'><a href="Model.html#new_user-instance_method" title="Model#new_user (method)">#new_user</a></span>, <span class='object_link'><a href="Model.html#select_cards-instance_method" title="Model#select_cards (method)">#select_cards</a></span>, <span class='object_link'><a href="Model.html#show_bronze-instance_method" title="Model#show_bronze (method)">#show_bronze</a></span>, <span class='object_link'><a href="Model.html#update_list-instance_method" title="Model#update_list (method)">#update_list</a></span>, <span class='object_link'><a href="Model.html#your_lists-instance_method" title="Model#your_lists (method)">#your_lists</a></span></p>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -596,14 +596,14 @@
       <pre class="lines">
 
 
-209
-210
-211
-212
-213</pre>
+222
+223
+224
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 222</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/bronze/:index/edit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
@@ -652,17 +652,17 @@
       <pre class="lines">
 
 
-145
-146
-147
-148
-149
-150
-151
-152</pre>
+158
+159
+160
+161
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 158</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/bronze/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_username'>username</span> <span class='op'>==</span> <span class='kw'>nil</span> <span class='comment'># Tidigare satt username som nil under enable :sessons, på get (&#39;/login&#39;) får vi att username är något anant och går därför till den tänkta sidan.
@@ -705,13 +705,13 @@
       <pre class="lines">
 
 
-297
-298
-299
-300</pre>
+310
+311
+312
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 310</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/error/:error_message</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_error_message'>error_message</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:error_message</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -937,20 +937,20 @@
       <pre class="lines">
 
 
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177</pre>
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 180</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/bronze</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
@@ -1025,14 +1025,14 @@
       <pre class="lines">
 
 
-289
-290
-291
-292
-293</pre>
+302
+303
+304
+305
+306</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 289</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 302</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/bronze/:index/delete</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
@@ -1135,18 +1135,18 @@
       <pre class="lines">
 
 
-250
-251
-252
-253
-254
-255
-256
-257
-258</pre>
+263
+264
+265
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 263</span>
 
 <span class='id identifier rubyid_post'>post</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/bronze/:index/update</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_ratinglist'>ratinglist</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:index</span><span class='rbracket'>]</span>
@@ -1235,20 +1235,20 @@
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137</pre>
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 140</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/login</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
@@ -1353,21 +1353,21 @@
       <pre class="lines">
 
 
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99</pre>
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 101</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users/new</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_username'>username</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
@@ -1391,7 +1391,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 17 19:59:16 2022 by
+  Generated on Tue May 17 22:14:47 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-3.0.3).
 </div>
